@@ -488,6 +488,8 @@ class DidlObject(with_metaclass(DidlMetaClass, object)):
         # subclass, ignore it by stripping it from item_class
         if ".#" in item_class:
             item_class = item_class[: item_class.find(".#")]
+        elif "#" in item_class:
+            item_class = item_class[: item_class.find("#")]
 
         if item_class != cls.item_class:
             raise DIDLMetadataError(
